@@ -1,21 +1,21 @@
 package main
 
 import (
-	"github.com/helmutkemper/kemper.com.br/dataAccess/dataFormat"
-	"log"
+	dataformat "github.com/helmutkemper/kemper.com.br.module.dataformat"
+	"github.com/helmutkemper/util"
 )
 
 func (e *MongoDBLanguage) Set(id, name string) (err error) {
 
 	_, err = e.ClientLanguage.InsertOne(
 		e.Ctx,
-		dataFormat.Languages{
+		dataformat.Languages{
 			Id:   id,
 			Name: name,
 		},
 	)
 	if err != nil {
-		log.Printf("MongoDBLanguage.Set().error: %v", err.Error())
+		util.TraceToLog()
 		return
 	}
 

@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"github.com/helmutkemper/kemper.com.br/util"
+	"github.com/helmutkemper/util"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"

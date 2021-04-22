@@ -1,16 +1,16 @@
 package main
 
 import (
-	"github.com/helmutkemper/kemper.com.br/constants"
-	"github.com/helmutkemper/kemper.com.br/dataAccess/dataFormat"
-	"github.com/helmutkemper/kemper.com.br/util"
+	dataformat "github.com/helmutkemper/kemper.com.br.module.dataformat"
+	constants "github.com/helmutkemper/kemper.com.br.plugin.dataaccess.constants"
+	"github.com/helmutkemper/util"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
 func (e *MongoDBLanguage) verifyInstallLanguage() (installed bool, err error) {
 	var cursor *mongo.Cursor
-	var languagues []dataFormat.Languages
+	var languagues []dataformat.Languages
 
 	//fixme: toBSon()
 	cursor, err = e.ClientLanguage.Find(e.Ctx, bson.M{"_id": constants.KInstallLanguageID, "name": constants.KInstallLanguageName})
