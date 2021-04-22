@@ -5,7 +5,7 @@ import (
 	"github.com/helmutkemper/util"
 )
 
-func New() (referenceInicialized *MongoDBLanguage, err error) {
+func (e *MongoDBLanguage) New() (referenceInicialized *MongoDBLanguage, err error) {
 	referenceInicialized = &MongoDBLanguage{}
 	err = referenceInicialized.Connect(constants.KMongoDBConnectionString)
 	if err != nil {
