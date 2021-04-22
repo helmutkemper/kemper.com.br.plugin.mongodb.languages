@@ -5,15 +5,15 @@ import (
 	"github.com/helmutkemper/util"
 )
 
-func (e *MongoDBLanguage) New() (referenceInicialized *MongoDBLanguage, err error) {
+func (e *MongoDBLanguage) New() (referenceInicialized interface{}, err error) {
 	referenceInicialized = &MongoDBLanguage{}
-	err = referenceInicialized.Connect(constants.KMongoDBConnectionString)
+	err = referenceInicialized.(*MongoDBLanguage).Connect(constants.KMongoDBConnectionString)
 	if err != nil {
 		util.TraceToLog()
 		return
 	}
 
-	err = referenceInicialized.Install()
+	err = referenceInicialized.(*MongoDBLanguage).Install()
 	if err != nil {
 		util.TraceToLog()
 		return
