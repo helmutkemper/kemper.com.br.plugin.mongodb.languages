@@ -6,18 +6,17 @@ import (
 )
 
 func (e *MongoDBLanguage) New() (referenceInicialized interface{}, err error) {
-	referenceInicialized = &MongoDBLanguage{}
-	err = referenceInicialized.(*MongoDBLanguage).Connect(constants.KMongoDBConnectionString)
+	err = e.Connect(constants.KMongoDBConnectionString)
 	if err != nil {
 		util.TraceToLog()
 		return
 	}
 
-	err = referenceInicialized.(*MongoDBLanguage).Install()
+	err = e.Install()
 	if err != nil {
 		util.TraceToLog()
 		return
 	}
 
-	return
+	return e, nil
 }
